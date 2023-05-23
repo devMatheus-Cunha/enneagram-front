@@ -1,95 +1,101 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+
+import React from 'react'
+import useLogin from '@/hooks/useLogin'
+
+import { useRouter } from 'next/navigation'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+
+import { Button, VStack, Stack, useColorMode } from '@chakra-ui/react'
+import Input from '@/components/Forms/Input'
+import { LoginProps } from '@/services/auth/loginService'
+
+const schema = z.object({
+  email: z
+    .string()
+    .nonempty('Este campo é obrigatório')
+    .email('Email Invalido'),
+  password: z
+    .string()
+    .nonempty('Este campo é obrigatório')
+    .min(6, 'Senha deve conter mais de 6 caracteres'),
+})
 
 export default function Home() {
+  const router = useRouter()
+
+  const { colorMode } = useColorMode()
+  const { loginWithEmailAndPassword, isLoading } = useLogin()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginProps>({
+    resolver: zodResolver(schema),
+  })
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <Stack
+      direction="column"
+      align="center"
+      minH="100vh"
+      justify="center"
+      px={{ base: 4, md: 8 }}
+    >
+      <form
+        onSubmit={handleSubmit((values: LoginProps) =>
+          loginWithEmailAndPassword(values),
+        )}
+      >
+        <VStack
+          spacing={14}
+          align="stretch"
+          w="500px"
+          bg="gray.700"
+          p={7}
+          rounded="lg"
+        >
+          <VStack spacing={6}>
+            <Input
+              placeholder="exemplo@gmail.com"
+              label="Email"
+              name="email"
+              type="text"
+              required
+              error={errors.email?.message}
+              register={register}
             />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+            <Input
+              label="Senha"
+              placeholder="**********"
+              type="password"
+              name="password"
+              required
+              error={errors.password?.message}
+              register={register}
+            />
+            <Stack
+              direction={{ base: 'column', md: 'row' }}
+              spacing={4}
+              justify="space-between"
+              align="self-end"
+            >
+              <Button
+                type="button"
+                variant="link"
+                onClick={() => router.push('/forgetPassword')}
+              >
+                Esqueceu a senha?
+              </Button>
+            </Stack>
+          </VStack>
+          <Button type="submit" isLoading={isLoading} mt={4}>
+            {colorMode === 'light' ? 'Login...' : 'Login'}
+          </Button>
+        </VStack>
+      </form>
+    </Stack>
   )
 }
