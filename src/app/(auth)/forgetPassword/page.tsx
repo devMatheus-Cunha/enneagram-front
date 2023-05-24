@@ -11,7 +11,7 @@ import Input from '@/components/Forms/Input'
 
 import { useRouter } from 'next/navigation'
 import { ForgetPasswordProps } from '@/services/auth/forgetPasswordService'
-import useForgetPassword from '@/hooks/useForgetPassword'
+import useForgetPassword from '@/hooks/auth/useForgetPassword'
 
 const schema = z.object({
   email: z

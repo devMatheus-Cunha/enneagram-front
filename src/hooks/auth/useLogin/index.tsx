@@ -12,12 +12,11 @@ const useLogin = () => {
     (values: LoginProps) => loginService(values),
     {
       onSuccess: async (user) => {
-        const id = '123'
-        router.push(`/control/${id}`)
+        router.push(`/dashboard`)
       },
       onError: ({ message }: { message: string }) => {
+        router.push(`/dashboard`)
         toast.error('Erro ao fazer login! Tente novamente.', {
-          position: toast.POSITION.TOP_RIGHT,
           theme: colorMode,
         })
       },

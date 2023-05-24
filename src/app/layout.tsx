@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { ProviderReactQuery } from '../providers/reactQuery/providerReactQuery'
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ProviderChakraUi>
             {children}
             <ReactQueryDevtools initialIsOpen={false} />
-            <ToastContainer />
+            <ToastContainer position={toast.POSITION.TOP_RIGHT} />
           </ProviderChakraUi>
         </ProviderReactQuery>
       </body>
