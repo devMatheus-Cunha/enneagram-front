@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import useLogin from '@/hooks/useLogin'
+import useLogin from '@/hooks/auth/useLogin'
 
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
