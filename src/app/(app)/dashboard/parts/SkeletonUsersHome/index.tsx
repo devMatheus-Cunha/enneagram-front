@@ -6,26 +6,14 @@ export default function SkeletonLoadingHome() {
     <>
       <Flex
         p={5}
-        w="456px"
-        h="101.63px"
         bg="gray.700"
         borderRadius={10}
         align="center"
+        h={['95.63', '101.63', '101.3']}
       >
         <Flex direction="column" flex="1">
-          <SkeletonText
-            noOfLines={1}
-            spacing="4"
-            skeletonHeight="2"
-            w="79.57px"
-          />
-          <SkeletonText
-            mt="4"
-            noOfLines={1}
-            spacing="4"
-            skeletonHeight="2"
-            w="79.57px"
-          />
+          <SkeletonText noOfLines={1} />
+          <SkeletonText mt="4" noOfLines={1} />
         </Flex>
         <Spacer />
         <Flex gap={3}>
@@ -36,26 +24,14 @@ export default function SkeletonLoadingHome() {
       </Flex>
       <Flex
         p={5}
-        w="456px"
-        h="101.63px"
         bg="gray.700"
         borderRadius={10}
         align="center"
+        h={['95.63', '101.63', '101.3']}
       >
         <Flex direction="column" flex="1">
-          <SkeletonText
-            noOfLines={1}
-            spacing="4"
-            skeletonHeight="2"
-            w="79.57px"
-          />
-          <SkeletonText
-            mt="4"
-            noOfLines={1}
-            spacing="4"
-            skeletonHeight="2"
-            w="79.57px"
-          />
+          <SkeletonText noOfLines={1} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={1} spacing="4" skeletonHeight="2" />
         </Flex>
         <Spacer />
         <Flex gap={3}>
@@ -66,26 +42,14 @@ export default function SkeletonLoadingHome() {
       </Flex>
       <Flex
         p={5}
-        w="456px"
-        h="101.63px"
         bg="gray.700"
         borderRadius={10}
         align="center"
+        h={['95.63', '101.63', '101.3']}
       >
         <Flex direction="column" flex="1">
-          <SkeletonText
-            noOfLines={1}
-            spacing="4"
-            skeletonHeight="2"
-            w="79.57px"
-          />
-          <SkeletonText
-            mt="4"
-            noOfLines={1}
-            spacing="4"
-            skeletonHeight="2"
-            w="79.57px"
-          />
+          <SkeletonText noOfLines={1} spacing="4" skeletonHeight="2" />
+          <SkeletonText mt="4" noOfLines={1} spacing="4" skeletonHeight="2" />
         </Flex>
         <Spacer />
         <Flex gap={3}>

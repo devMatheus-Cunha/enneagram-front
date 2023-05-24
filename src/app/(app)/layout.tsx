@@ -19,14 +19,14 @@ export default function LayoutApp({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <Flex w="full" bg="gray.700" align="center" p={3}>
+      <Flex w="full" bg="gray.700" align="center" p={[2, 3]}>
         {pathname !== '/dashboard' && (
           <Button variant="link" type="button" onClick={router.back}>
             Voltar
           </Button>
         )}
         <Spacer />
-        <Flex align="center" gap={6} mr={8}>
+        <Flex align="center" gap={[4, 6]} mr={[4, 8]}>
           <Flex align="center" gap={2}>
             <Text fontSize="sm">Light</Text>
             <Switch
@@ -46,6 +46,7 @@ export default function LayoutApp({ children }: { children: ReactNode }) {
           </Button>
         </Flex>
       </Flex>
+
       {children}
     </>
   )

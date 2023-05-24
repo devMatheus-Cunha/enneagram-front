@@ -1,12 +1,12 @@
 import { LoginProps, loginService } from '@/services/auth/loginService'
-import { useColorMode } from '@chakra-ui/react'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
-import { toast } from 'react-toastify'
+// import { useColorMode } from '@chakra-ui/react'
+// import { toast } from 'react-toastify'
 
 const useLogin = () => {
   const router = useRouter()
-  const { colorMode } = useColorMode()
+  // const { colorMode } = useColorMode()
 
   const { mutate: loginWithEmailAndPassword, isLoading } = useMutation(
     (values: LoginProps) => loginService(values),
@@ -16,9 +16,9 @@ const useLogin = () => {
       },
       onError: ({ message }: { message: string }) => {
         router.push(`/dashboard`)
-        toast.error('Erro ao fazer login! Tente novamente.', {
-          theme: colorMode,
-        })
+        // toast.error('Erro ao fazer login! Tente novamente.', {
+        //   theme: colorMode,
+        // })
       },
     },
   )
