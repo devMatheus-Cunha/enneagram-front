@@ -19,7 +19,7 @@ export default function SkeletonLoadingHome() {
         <Flex gap={3}>
           <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
           <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
-          <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
+          {/* <Skeleton h="45px" w="45px" borderRadius="0.375rem" /> */}
         </Flex>
       </Flex>
       <Flex
@@ -37,7 +37,7 @@ export default function SkeletonLoadingHome() {
         <Flex gap={3}>
           <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
           <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
-          <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
+          {/* <Skeleton h="45px" w="45px" borderRadius="0.375rem" /> */}
         </Flex>
       </Flex>
       <Flex
@@ -55,7 +55,7 @@ export default function SkeletonLoadingHome() {
         <Flex gap={3}>
           <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
           <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
-          <Skeleton h="45px" w="45px" borderRadius="0.375rem" />
+          {/* <Skeleton h="45px" w="45px" borderRadius="0.375rem" /> */}
         </Flex>
       </Flex>
     </>
