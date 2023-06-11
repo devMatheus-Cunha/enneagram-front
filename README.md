@@ -2,6 +2,8 @@
 
 This application is designed for a team of psychologists to send questionnaires to their clients. The clients can fill out and save the questionnaires, and the psychologists can view all the questionnaires submitted by their clients. The application also generates a technical enneagram based on the questionnaire responses, which the psychologists can use as a tool during their consultations. Additionally, psychologists can view detailed information for each completed questionnaire.
 
+**Please note that this code is still under development.**
+
 ## Features
 
 - Psychologists can send questionnaires to clients.
@@ -22,7 +24,7 @@ This application is designed for a team of psychologists to send questionnaires 
 
 ## API
 
-The application consumes the API developed by Andre Isaac. Please click [here](https://github.com/devAndre-Isaac/enneagram-api) to access the API repository on GitHub.
+The application consumes the API developed by Andre Isaac. You can find the API repository [here](https://github.com/devAndre-Isaac/enneagram-api). Please click [here](https://github.com/devAndre-Isaac/enneagram-api) to access the API repository on GitHub.
 
 ## Getting Started
 
