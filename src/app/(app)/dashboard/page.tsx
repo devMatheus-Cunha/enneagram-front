@@ -17,11 +17,12 @@ import {
 import { IconButton } from '@/components'
 
 import { useRouter } from 'next/navigation'
+import { useGetAllClients } from '@/hooks/userData/useGetAllClients'
 
-import { useGetAllUsers } from '@/hooks/userData/useGetAllUsers'
-import { formatDate } from '@/utils/formattedDate'
-import { ChartPieSlice, Eye, FilePdf } from '@phosphor-icons/react'
 import { toast } from 'react-toastify'
+import { formatDate } from '@/utils/formattedDate'
+import { ChartPieSlice, Eye } from '@phosphor-icons/react'
+
 import SkeletonUsersHome from './parts/SkeletonUsersHome'
 import FilterModalContent from './parts/FilterModalContent'
 
@@ -29,7 +30,7 @@ export default function Dashboard() {
   const router = useRouter()
 
   const { colorMode } = useColorMode()
-  const { allUsersData, isLoadingAllUsersData } = useGetAllUsers()
+  const { allClientsData, isLoadingAllClientsData } = useGetAllClients()
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const copyURL = () => {
@@ -72,11 +73,11 @@ export default function Dashboard() {
         spacing={8}
         minChildWidth={['100%', '50%', '31%']}
       >
-        {isLoadingAllUsersData ? (
+        {isLoadingAllClientsData ? (
           <SkeletonUsersHome />
         ) : (
           <>
-            {allUsersData?.data?.map((item) => (
+            {allClientsData?.map((item) => (
               <Fragment key={item.id}>
                 <Flex p={5} bg="gray.700" borderRadius={10} align="center">
                   <Flex direction="column" flex="1">
@@ -93,12 +94,12 @@ export default function Dashboard() {
                       tooltip="Detalhes"
                       onClick={() => router.push(`questionsDetails/${item.id}`)}
                     />
-                    <IconButton
+                    {/* <IconButton
                       aria-label="downloadPdf"
                       icon={<FilePdf size={20} />}
                       tooltip="Baixar PDF"
                       onClick={() => console.log('downloadPdf')}
-                    />
+                    /> */}
                     <IconButton
                       aria-label="downloadGrafic"
                       icon={<ChartPieSlice size={20} />}

@@ -69,6 +69,6 @@ const response = {
 }
 
 export async function GET() {
-  await new Promise((resolve) => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 500))
   return NextResponse.json(response)
 }
